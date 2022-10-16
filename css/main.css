@@ -1,0 +1,119 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root{
+ 	--index: calc(1vw+1vh);
+	--transition: transform .75s cubic-bezier(.07, .5, 0, 1);
+}
+@font-face {
+	font-family: raleway_f;
+	src: url(../fonts/raleway-regular.woff2);
+}
+@font-face {
+	font-family: raleway_f;
+	src: url(../fonts/raleway-black.woff2);
+	font-weight: 900;
+}
+body{
+	background-color: #010101;
+	color: #fff;
+	font-family: raleway_f, sans-serif;
+}
+.header{
+	position: relative;
+}
+.header::after{
+	content: '';
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	height: calc(var(--index) * 10);
+	background-image: url(../img/ground.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	bottom: calc(var(--index) * -5);
+}
+.header__content{
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+}
+
+.header__greeting{
+	z-index: 1;
+	transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+	will-change: transform;
+	text-transform: uppercase;
+	font-weight: 900;
+	color: #e7e7e0;
+	text-shadow: 0 0 15px  #8d6d29;
+}
+.header__welcome{
+	font-size: calc(var(--index) / 1.1);
+	letter-spacing: calc(var(--index) / 3);
+}
+.header__title{
+	font-size: calc(var(--index) * 2.5);
+	letter-spacing: calc(var(--index) * 1.2);
+}
+
+
+
+.header__layer{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-size: cover;
+	background-position: center;
+	will-change: transform;
+	transition: var(--transition);
+}
+.base{
+	transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+}
+
+.middle{
+	transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+}
+.front{
+	transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
+	z-index: 2;
+}
+
+
+
+.article{
+	min-height: 100vh;
+	background-size: cover;
+	background-color: center;
+	color: #e7e7e0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.article__header{
+	text-transform: uppercase;
+	font-size: calc(var(--index) * 2.5);
+	letter-spacing: calc(var(--index) / 7.5);
+	text-align: center;
+	transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
+	will-change: transform;
+}
+.article__paragraph{
+	max-width: calc(var(--index) * 50);
+	font-size:calc(var(--index) * 1.5);
+	margin-top: calc(var(--index) * 1.1 );
+	transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
+	will-change: transform;
+	text-align: center;
+}
